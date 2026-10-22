@@ -263,8 +263,9 @@ if analyze_btn:
         "\n--- Enhanced Bullets ---\n",
         bullets if "bullets" in dir() else "N/A",
     ]
-    report_text = "\n".join(report_lines)
-
+    report_text = "\n".join(
+    str(line) for line in report_lines if line is not None
+    )
     st.download_button(
         label="📥 Download Full Report",
         data=report_text,
